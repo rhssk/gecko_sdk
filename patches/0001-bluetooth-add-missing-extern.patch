@@ -1,0 +1,36 @@
+From 46ac040ad7880955bbf3a485374b62ddd7c7dc8c Mon Sep 17 00:00:00 2001
+From: Rihards Skuja <rhssk@posteo.eu>
+Date: Thu, 13 Oct 2022 20:12:31 +0300
+Subject: [PATCH] bluetooth: add missing extern
+
+---
+ protocol/bluetooth/src/sl_bluetooth.h.jinja | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/protocol/bluetooth/src/sl_bluetooth.h.jinja b/protocol/bluetooth/src/sl_bluetooth.h.jinja
+index 0a6fa6a7f..7c09e0059 100644
+--- a/protocol/bluetooth/src/sl_bluetooth.h.jinja
++++ b/protocol/bluetooth/src/sl_bluetooth.h.jinja
+@@ -1,6 +1,10 @@
+ #ifndef BLUETOOTH_H
+ #define BLUETOOTH_H
+ 
++#ifdef __cplusplus
++extern "C" {
++#endif
++
+ #include <stdbool.h>
+ {%- if bluetooth_api_ncp_host is not defined %}
+ #include "sl_power_manager.h"
+@@ -50,4 +54,8 @@ bool sli_bt_is_ok_to_sleep(void);
+ sl_power_manager_on_isr_exit_t sli_bt_sleep_on_isr_exit(void);
+ {%- endif %}
+ 
++#ifdef __cplusplus
++}
++#endif
++
+ #endif // BLUETOOTH_H
+-- 
+2.38.0
+
