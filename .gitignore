@@ -1,2 +1,3 @@
 #Do not show SLC Extensions in `git status`
 extension/
+protocol/bluetooth/bin/gatt/__pycache__/
